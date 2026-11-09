@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-genaya",
+  "version": "1.0.0",
+  "description": "n8n community nodes for Genaya - clients, leads, appointments, invoices, tasks and messages over the Genaya public API, plus an instant event trigger.",
+  "keywords": [
+    "n8n-community-node-package",
+    "genaya",
+    "crm",
+    "field-service",
+    "scheduling"
+  ],
+  "license": "MIT",
+  "homepage": "https://developer.genaya.com",
+  "author": {
+    "name": "Genaya",
+    "email": "help@genaya.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/genaya-app/n8n-nodes-genaya.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/GenayaApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Genaya/Genaya.node.js",
+      "dist/nodes/GenayaTrigger/GenayaTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "n8n-workflow": "*",
+    "typescript": "~5.5.4"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
